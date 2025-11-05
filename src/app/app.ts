@@ -38,11 +38,36 @@ export class App implements AfterViewInit, OnDestroy {
 
   // Menu actions
   toggleMenu(): void {
-    this.menuOpen.update(isOpen => !isOpen);
+    const newState = !this.menuOpen();
+    this.menuOpen.set(newState);
+    
+    // Force change detection on mobile
+    if (this.isClient()) {
+      setTimeout(() => {
+        const menuElement = document.querySelector('.menu');
+        if (menuElement) {
+          if (newState) {
+            menuElement.classList.add('open');
+          } else {
+            menuElement.classList.remove('open');
+          }
+        }
+      }, 0);
+    }
   }
 
   closeMenu(): void {
     this.menuOpen.set(false);
+    
+    // Force close on mobile
+    if (this.isClient()) {
+      setTimeout(() => {
+        const menuElement = document.querySelector('.menu');
+        if (menuElement) {
+          menuElement.classList.remove('open');
+        }
+      }, 0);
+    }
   }
 
   // Scroll actions
