@@ -119,6 +119,7 @@
 	border-radius: 50%;
 	border: 1px solid #2a2f36;
 	background:
+		url('/me_foto.png') center/cover no-repeat,
 		radial-gradient(80% 60% at 30% 20%, #58a6ff22, transparent 60%),
 		radial-gradient(70% 60% at 70% 80%, #1f6feb22, transparent 60%),
 		linear-gradient(135deg, #1b2130, #121825);
@@ -148,19 +149,6 @@
 	filter: brightness(1.05);
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
-}
-
-.avatar {
-	width: clamp(160px, 28vw, 240px);
-	aspect-ratio: 1/1;
-	border-radius: 50%;
-	border: 1px solid #2a2f36;
-	background:
-		radial-gradient(80% 60% at 30% 20%, #58a6ff22, transparent 60%),
-		radial-gradient(70% 60% at 70% 80%, #1f6feb22, transparent 60%),
-		linear-gradient(135deg, #1b2130, #121825);
-	box-shadow: inset 0 0 60px #0006, 0 10px 24px #0007;
-	transition: transform 0.4s ease;
 }
 
 .avatar:hover { transform: scale(1.05); }
