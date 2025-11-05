@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh": "ng build --base-href /portfolio/",
+    "deploy": "npm run build:gh && npx angular-cli-ghpages --dir=dist/portfolio3/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portfolio3": "node dist/portfolio3/server/server.mjs"
