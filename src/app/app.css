@@ -1,0 +1,763 @@
+/* App shell styles: header, nav, footer, container */
+
+:host {
+	display: contents;
+}
+
+.container {
+	max-width: 1100px;
+	margin-inline: auto;
+	padding-inline: clamp(1rem, 5vw, 2rem);
+}
+
+.site-header {
+	position: fixed;
+	inset-inline: 0;
+	top: 0;
+	z-index: 100;
+	background: transparent;
+	border-bottom: 1px solid transparent;
+	transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.site-header.glass {
+	background: color-mix(in srgb, var(--surface) 70%, transparent);
+	border-bottom-color: color-mix(in srgb, var(--text) 10%, transparent);
+	backdrop-filter: saturate(180%) blur(10px);
+	box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 64px;
+	transition: height .25s ease;
+}
+
+.brand {
+	font-weight: 700;
+	font-size: 1.125rem;
+	color: var(--text);
+	text-decoration: none;
+	transition: font-size .25s ease;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu a {
+	color: var(--text-muted);
+	text-decoration: none;
+	padding: 0.5rem 0.75rem;
+	border-radius: 8px;
+	transition: color .2s ease, background-color .2s ease;
+}
+
+.menu a:hover { color: var(--text); background: var(--surface-2); }
+.menu a.active { color: var(--text); background: var(--surface-2); }
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 36px;
+	padding: 0 0.9rem;
+	border-radius: 10px;
+	font-weight: 600;
+	transition: height .25s ease, padding .25s ease, border-radius .25s ease;
+}
+
+
+.btn-primary { color: white; background: var(--primary); }
+.btn-primary:hover { filter: brightness(1.05); }
+
+/* Full-width background wrapper that sits behind the content */
+.site-bg {
+	position: relative;
+	overflow: hidden;
+	/* Sections background (non-home) */
+	background: #0f121a;
+	transition: background-color 600ms ease;
+}
+
+/* Home dynamic gradient layer (fades in/out) */
+.site-bg::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(1200px 800px at 20% 15%, rgba(31, 111, 235, 0.20), transparent 60%),
+		radial-gradient(1000px 700px at 80% 30%, rgba(88, 166, 255, 0.18), transparent 65%),
+		linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+	opacity: 0;
+	transition: opacity 700ms ease;
+	will-change: opacity, background-position;
+	background-size: 140% 140%, 140% 140%, auto;
+	background-position: 0% 0%, 100% 0%, center;
+	pointer-events: none;
+}
+
+.site-bg.home-mode::before {
+	opacity: 1;
+	/* Drift continuously; also fade in on initial load */
+	animation: homeBgDrift 24s ease-in-out infinite alternate, homeBgFadeIn 800ms ease both;
+}
+
+.site-bg.sections-mode::before { opacity: 0; }
+
+@keyframes homeBgDrift {
+	0%   { background-position: 0% 0%,   100% 0%,  center; }
+	50%  { background-position: 10% 5%,   90% 10%, center; }
+	100% { background-position: 0% 0%,   100% 0%,  center; }
+}
+
+@keyframes homeBgFadeIn {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+/* Subtle particles only on Home (very light) */
+.site-bg::after {
+	content: '';
+	position: absolute;
+	inset: -20% -20% -10% -20%;
+	background:
+		radial-gradient(2px 2px at 10% 20%, rgba(88, 166, 255, 0.12), transparent 40%),
+		radial-gradient(1.5px 1.5px at 35% 70%, rgba(31, 111, 235, 0.10), transparent 40%),
+		radial-gradient(1.8px 1.8px at 65% 30%, rgba(88, 166, 255, 0.08), transparent 40%),
+		radial-gradient(1.6px 1.6px at 80% 80%, rgba(31, 111, 235, 0.10), transparent 40%),
+		radial-gradient(1.4px 1.4px at 25% 45%, rgba(88, 166, 255, 0.09), transparent 40%);
+	opacity: 0;
+	transform: translate3d(0, 0, 0);
+	will-change: transform, opacity;
+	pointer-events: none;
+}
+
+.site-bg.home-mode::after {
+	opacity: 0.45;
+	animation: particlesFloat 30s linear infinite;
+}
+
+.site-bg.sections-mode::after { opacity: 0; }
+
+@keyframes particlesFloat {
+	0%   { transform: translateY(0) translateX(0); }
+	50%  { transform: translateY(-20px) translateX(10px); }
+	100% { transform: translateY(0) translateX(0); }
+}
+
+/* Constrain content; ensure it sits above background layers */
+.site-main { position: relative; z-index: 1; padding-block: 2rem 1.5rem; }
+
+/* Ensure each section occupies at least full viewport height */
+.section { min-height: 100vh; scroll-margin-top: 80px; }
+/* Bring footer closer to the last section (Contact) */
+.section:last-of-type,
+#contact.section { min-height: auto; padding-bottom: 0; }
+
+/* (Removed per new design) section-specific backgrounds handled by .site-bg layers */
+
+.site-footer {
+	border-top: 1px solid var(--border);
+	background: var(--surface);
+}
+
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-block: 1rem;
+}
+
+.social { display: flex; gap: 0.75rem; }
+.social a { color: var(--text-muted); text-decoration: none; }
+.social a:hover { color: var(--text); }
+
+/* Responsive */
+.nav-toggle {
+	display: none;
+	width: 40px; height: 40px;
+	background: transparent; border: 1px solid var(--border);
+	border-radius: 8px;
+	align-items: center; justify-content: center;
+	gap: 4px; flex-direction: column;
+}
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); }
+
+.site-header.condensed .nav { height: 56px; }
+.site-header.condensed .brand { font-size: 1rem; }
+.site-header.condensed .menu a { padding: 0.375rem 0.625rem; border-radius: 6px; }
+.site-header.condensed .btn { height: 32px; border-radius: 8px; padding: 0 0.75rem; }
+.site-header.condensed .menu a { border-radius: 6px; }
+
+@media (max-width: 900px) {
+	.nav { height: 56px; }
+	.nav-toggle { display: inline-flex; }
+	.menu {
+		position: absolute; right: 1rem; top: 64px;
+		display: none; flex-direction: column; align-items: stretch;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: .5rem; gap: .25rem;
+		width: min(260px, calc(100% - 2rem));
+	}
+	.menu.open { display: flex; }
+	.menu a { display: block; }
+	.btn { height: 40px; }
+}
+
+/* Hero size tweaks on small screens */
+@media (max-width: 720px) {
+	.hero-text h1 { font-size: 2rem; }
+}
+
+/* Back to top */
+.to-top {
+	position: fixed;
+	right: 1.25rem;
+	bottom: 1.25rem;
+	width: 48px; height: 48px;
+	border-radius: 12px;
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid var(--border);
+	box-shadow: 0 4px 12px rgba(0,0,0,.3);
+	cursor: pointer;
+	font-size: 1.5rem;
+	font-weight: 700;
+	transition: all 0.3s ease;
+	backdrop-filter: saturate(180%) blur(10px);
+}
+.to-top:hover { 
+	background: var(--surface-2);
+	border-color: var(--accent);
+	transform: translateY(-3px);
+	box-shadow: 0 6px 20px rgba(88, 166, 255, 0.3);
+	color: var(--accent);
+}
+
+/* ============================================
+   ROCKET SCROLL INDICATOR
+   ============================================ */
+
+.rocket-container {
+	position: fixed;
+	left: 30px;
+	top: 80px;
+	bottom: 80px;
+	width: 60px;
+	z-index: 200;
+	pointer-events: none;
+	perspective: 1000px;
+	overflow: visible;
+}
+
+.moon-destination {
+	position: absolute;
+	top: -20px; /* Subida 10px más (antes -10px) */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 45px;
+	height: 45px;
+	background: 
+		radial-gradient(circle at 30% 30%, #f0f0f0, #c0c0c0 50%, #909090);
+	border-radius: 50%;
+	box-shadow: 
+		0 0 30px rgba(255, 255, 255, 0.4),
+		inset -5px -5px 15px rgba(0, 0, 0, 0.2),
+		inset 5px 5px 10px rgba(255, 255, 255, 0.3);
+	position: relative;
+}
+
+/* Cráteres de la luna */
+.moon-destination::before {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 50%;
+	top: 8px;
+	left: 12px;
+	box-shadow: 
+		15px 5px 0 -2px rgba(0, 0, 0, 0.1),
+		8px 20px 0 -3px rgba(0, 0, 0, 0.12),
+		22px 18px 0 -4px rgba(0, 0, 0, 0.08);
+}
+
+.moon-destination::after {
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	top: 25px;
+	left: 8px;
+	box-shadow: 
+		18px -8px 0 -2px rgba(0, 0, 0, 0.08);
+}
+
+.earth-platform {
+	position: absolute;
+	bottom: -355px; /* Ajustado a -355px */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90px; /* Más pequeña */
+	height: 90px;
+	background: 
+		radial-gradient(circle at 35% 35%, #60a5fa, #3b82f6 40%, #1E3A8A 70%, #1e3a70);
+	border-radius: 50%;
+	box-shadow: 
+		0 0 50px rgba(59, 130, 246, 0.6),
+		inset -12px -12px 25px rgba(0, 0, 0, 0.4),
+		inset 8px 8px 15px rgba(96, 165, 250, 0.3);
+	position: relative;
+	overflow: hidden;
+}
+
+/* Continentes de la Tierra (ajustados al tamaño) */
+.earth-platform::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: 
+		radial-gradient(ellipse 26px 34px at 20% 40%, #34d399, transparent),
+		radial-gradient(ellipse 30px 26px at 55% 25%, #34d399, transparent),
+		radial-gradient(ellipse 21px 29px at 70% 60%, #34d399, transparent),
+		radial-gradient(ellipse 19px 23px at 35% 75%, #34d399, transparent),
+		radial-gradient(ellipse 23px 19px at 80% 35%, #34d399, transparent);
+	border-radius: 50%;
+	opacity: 0.75;
+}
+
+/* Nubes blancas (ajustadas al tamaño) */
+.earth-platform::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: 
+		radial-gradient(circle 14px at 30% 20%, rgba(255, 255, 255, 0.5), transparent),
+		radial-gradient(circle 11px at 60% 45%, rgba(255, 255, 255, 0.4), transparent),
+		radial-gradient(circle 12px at 45% 30%, rgba(255, 255, 255, 0.45), transparent),
+		radial-gradient(circle 9px at 75% 50%, rgba(255, 255, 255, 0.35), transparent);
+	border-radius: 50%;
+	animation: earthClouds 20s linear infinite;
+}
+
+@keyframes earthClouds {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.rocket {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 
+		top 0.1s linear;
+	will-change: top, transform;
+	transform-style: preserve-3d;
+	filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+/* Rotación del cohete según dirección */
+.rocket.direction-down {
+	/* Scroll bajando = cohete sube apuntando arriba */
+	animation: rocketPointUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.rocket.direction-up {
+	/* Scroll subiendo = cohete baja apuntando abajo */
+	animation: rocketPointDown 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes rocketPointUp {
+	0% {
+		transform: translateX(-50%) translateY(-50%) rotate(180deg);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	}
+}
+
+@keyframes rocketPointDown {
+	0% {
+		transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotate(180deg);
+	}
+}
+
+.rocket svg {
+	width: 40px;
+	height: 40px;
+	transition: color 0.5s ease;
+}
+
+/* Colores del cohete según la sección activa */
+.rocket[data-section="home"] svg {
+	color: #58a6ff;
+	filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.8));
+}
+
+.rocket[data-section="about"] svg {
+	color: #4fd1c5;
+	filter: drop-shadow(0 0 8px rgba(79, 209, 197, 0.8));
+}
+
+.rocket[data-section="skills"] svg {
+	color: #a855f7;
+	filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.8));
+}
+
+.rocket[data-section="projects"] svg {
+	color: #f59e0b;
+	filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+}
+
+.rocket[data-section="contact"] svg {
+	color: #ec4899;
+	filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.8));
+}
+
+/* Responsive - ocultar en pantallas pequeñas */
+@media (max-width: 768px) {
+	.rocket-container {
+		display: none;
+	}
+}
+
+/* ============================================
+   DYNAMIC BACKGROUND ANIMATIONS BY SECTION
+   Ultra-Modern Professional Transitions
+   ============================================ */
+
+/* About Mode: Morphing Gradient Waves con efecto líquido */
+.site-bg.about-mode {
+	background: 
+		radial-gradient(ellipse 150% 80% at 50% -20%, rgba(88, 166, 255, 0.15), transparent),
+		radial-gradient(circle at 80% 80%, rgba(79, 209, 197, 0.12), transparent 50%),
+		linear-gradient(135deg, #0a0e1a 0%, #1a1f35 50%, #0f1624 100%);
+}
+
+.site-bg.about-mode::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle 2px at 15% 20%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 35% 25%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 55% 30%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 75% 35%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 25% 40%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 85% 45%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 10% 50%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 50% 55%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 70% 60%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 30% 65%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 90% 70%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 45% 70%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 65% 75%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 85% 80%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 20% 85%, #58a6ff, transparent);
+	animation: contactParticleFloat 18s ease-in-out infinite;
+	pointer-events: none;
+}
+
+.site-bg.about-mode::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	opacity: 0.3;
+	background-image:
+		linear-gradient(135deg, transparent 48%, rgba(79, 209, 197, 0.3) 49%, rgba(79, 209, 197, 0.3) 51%, transparent 52%),
+		linear-gradient(45deg, transparent 48%, rgba(88, 166, 255, 0.25) 49%, rgba(88, 166, 255, 0.25) 51%, transparent 52%);
+	background-size: 40px 40px, 40px 40px;
+	background-position: 0 0, 20px 20px;
+	animation: contactNetworkPulse 15s linear infinite;
+	pointer-events: none;
+	mix-blend-mode: overlay;
+}
+
+@keyframes aboutLiquidWave {
+	0%, 100% { 
+		background-position: 0% 30%, 100% 70%; 
+		opacity: 0.6;
+	}
+	33% { 
+		background-position: 100% 60%, 0% 40%;
+		opacity: 0.8;
+	}
+	66% { 
+		background-position: 50% 80%, 50% 20%;
+		opacity: 0.7;
+	}
+}
+
+@keyframes aboutConicSpin {
+	0% { transform: rotate(0deg) scale(1); }
+	50% { transform: rotate(180deg) scale(1.1); }
+	100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Skills Mode: Geometric Pattern Morphing con hexágonos */
+.site-bg.skills-mode {
+	background: 
+		radial-gradient(circle at 30% 20%, rgba(79, 209, 197, 0.08), transparent 40%),
+		radial-gradient(circle at 70% 80%, rgba(88, 166, 255, 0.08), transparent 40%),
+		linear-gradient(125deg, #0f1419 0%, #1a2332 50%, #121a28 100%);
+}
+
+.site-bg.skills-mode::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle 2px at 15% 20%, #a855f7, transparent),
+		radial-gradient(circle 3px at 35% 25%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 55% 30%, #a855f7, transparent),
+		radial-gradient(circle 3px at 75% 35%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 25% 40%, #a855f7, transparent),
+		radial-gradient(circle 3px at 85% 45%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 10% 50%, #a855f7, transparent),
+		radial-gradient(circle 3px at 50% 55%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 70% 60%, #a855f7, transparent),
+		radial-gradient(circle 3px at 30% 65%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 90% 70%, #a855f7, transparent),
+		radial-gradient(circle 3px at 45% 70%, #a855f7, transparent),
+		radial-gradient(circle 2px at 65% 75%, #4fd1c5, transparent),
+		radial-gradient(circle 3px at 85% 80%, #a855f7, transparent),
+		radial-gradient(circle 2px at 20% 85%, #4fd1c5, transparent);
+	animation: contactParticleFloat 18s ease-in-out infinite;
+	pointer-events: none;
+}
+
+.site-bg.skills-mode::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	opacity: 0.3;
+	background-image:
+		linear-gradient(135deg, transparent 48%, rgba(168, 85, 247, 0.3) 49%, rgba(168, 85, 247, 0.3) 51%, transparent 52%),
+		linear-gradient(45deg, transparent 48%, rgba(79, 209, 197, 0.25) 49%, rgba(79, 209, 197, 0.25) 51%, transparent 52%);
+	background-size: 40px 40px, 40px 40px;
+	background-position: 0 0, 20px 20px;
+	animation: contactNetworkPulse 15s linear infinite;
+	pointer-events: none;
+	mix-blend-mode: overlay;
+}
+
+@keyframes skillsHexagonFloat {
+	0% { 
+		background-position: 0 0, 50px 50px;
+		transform: rotate(0deg);
+	}
+	100% { 
+		background-position: 400px 400px, 450px 450px;
+		transform: rotate(30deg);
+	}
+}
+
+@keyframes skillsParticleConnect {
+	0%, 100% { 
+		transform: scale(1) translateY(0);
+		opacity: 0.3;
+	}
+	25% {
+		transform: scale(1.1) translateY(-10px);
+		opacity: 0.6;
+	}
+	75% {
+		transform: scale(0.95) translateY(5px);
+		opacity: 0.5;
+	}
+}
+
+/* Projects Mode: Glitch Matrix con efecto digital */
+.site-bg.projects-mode {
+	background: 
+		linear-gradient(to bottom, rgba(88, 166, 255, 0.03) 1px, transparent 1px),
+		linear-gradient(to right, rgba(79, 209, 197, 0.03) 1px, transparent 1px),
+		linear-gradient(160deg, #080d1a 0%, #0f1828 40%, #121924 100%);
+	background-size: 50px 50px, 50px 50px, 100% 100%;
+}
+
+.site-bg.projects-mode::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle 2px at 15% 20%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 35% 25%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 55% 30%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 75% 35%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 25% 40%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 85% 45%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 10% 50%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 50% 55%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 70% 60%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 30% 65%, #58a6ff, transparent),
+		radial-gradient(circle 2px at 90% 70%, #f59e0b, transparent),
+		radial-gradient(circle 3px at 45% 70%, #f59e0b, transparent),
+		radial-gradient(circle 2px at 65% 75%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 85% 80%, #f59e0b, transparent),
+		radial-gradient(circle 2px at 20% 85%, #58a6ff, transparent);
+	animation: contactParticleFloat 18s ease-in-out infinite;
+	pointer-events: none;
+}
+
+.site-bg.projects-mode::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	opacity: 0.3;
+	background-image:
+		linear-gradient(135deg, transparent 48%, rgba(245, 158, 11, 0.3) 49%, rgba(245, 158, 11, 0.3) 51%, transparent 52%),
+		linear-gradient(45deg, transparent 48%, rgba(88, 166, 255, 0.25) 49%, rgba(88, 166, 255, 0.25) 51%, transparent 52%);
+	background-size: 40px 40px, 40px 40px;
+	background-position: 0 0, 20px 20px;
+	animation: contactNetworkPulse 15s linear infinite;
+	pointer-events: none;
+	mix-blend-mode: overlay;
+}
+
+@keyframes projectsMatrixRain {
+	0% { background-position: 0 0, 0 0; }
+	100% { background-position: 0 400px, 0 800px; }
+}
+
+@keyframes projectsGlitchPulse {
+	0%, 90%, 100% { opacity: 0.5; }
+	92%, 96% { opacity: 0.8; transform: translateX(0); }
+	94% { opacity: 0.6; transform: translateX(2px); }
+}
+
+@keyframes projectsScanLine {
+	0%, 100% { 
+		transform: translateY(-100%) scaleY(0.5);
+		opacity: 0;
+	}
+	10%, 90% {
+		opacity: 0.4;
+	}
+	50% { 
+		transform: translateY(100%) scaleY(1);
+		opacity: 0.6;
+	}
+}
+
+/* Contact Mode: Particle Burst con efecto de conexión */
+.site-bg.contact-mode {
+	background: 
+		radial-gradient(ellipse at top, rgba(79, 209, 197, 0.2), transparent 50%),
+		radial-gradient(circle at 50% 100%, rgba(88, 166, 255, 0.15), transparent 60%),
+		linear-gradient(170deg, #0a0f1e 0%, #141b2e 50%, #0d1220 100%);
+}
+
+.site-bg.contact-mode::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	opacity: 1;
+	background: 
+		radial-gradient(circle 3px at 15% 20%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 35% 35%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 55% 25%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 75% 40%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 85% 30%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 25% 60%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 45% 70%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 65% 75%, #58a6ff, transparent),
+		radial-gradient(circle 3px at 85% 80%, #4fd1c5, transparent),
+		radial-gradient(circle 2px at 20% 85%, #58a6ff, transparent);
+	animation: contactParticleFloat 18s ease-in-out infinite;
+	pointer-events: none;
+}
+
+.site-bg.contact-mode::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	opacity: 0.3;
+	background-image:
+		linear-gradient(135deg, transparent 48%, rgba(79, 209, 197, 0.3) 49%, rgba(79, 209, 197, 0.3) 51%, transparent 52%),
+		linear-gradient(45deg, transparent 48%, rgba(88, 166, 255, 0.25) 49%, rgba(88, 166, 255, 0.25) 51%, transparent 52%);
+	background-size: 40px 40px, 40px 40px;
+	background-position: 0 0, 20px 20px;
+	animation: contactNetworkPulse 15s linear infinite;
+	pointer-events: none;
+	mix-blend-mode: overlay;
+}
+
+@keyframes contactParticleFloat {
+	0%, 100% { 
+		transform: translateY(0) scale(1);
+		opacity: 0.4;
+	}
+	25% {
+		transform: translateY(-20px) scale(1.2);
+		opacity: 0.7;
+	}
+	50% {
+		transform: translateY(-10px) scale(0.9);
+		opacity: 0.5;
+	}
+	75% {
+		transform: translateY(-30px) scale(1.1);
+		opacity: 0.6;
+	}
+}
+
+@keyframes contactNetworkPulse {
+	0% { 
+		background-position: 0 0, 20px 20px;
+		opacity: 0.15;
+	}
+	50% {
+		background-position: 40px 40px, 60px 60px;
+		opacity: 0.35;
+	}
+	100% { 
+		background-position: 80px 80px, 100px 100px;
+		opacity: 0.15;
+	}
+}
+
+/* Ultra-smooth transitions between modes */
+.site-bg {
+	transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-bg::before,
+.site-bg::after {
+	transition: 
+		opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+		transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+		filter 0.8s ease;
+}
+
+/* Performance: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+	.site-bg,
+	.site-bg::before,
+	.site-bg::after {
+		animation: none !important;
+		transition: background 0.3s ease !important;
+	}
+}

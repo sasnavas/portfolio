@@ -1,0 +1,48 @@
+<section id="home" class="hero section" aria-label="Hero" @heroFade>
+  <div class="hero-inner">
+    <div class="hero-text" @textStagger>
+      <p class="eyebrow text-item">Hi, I'm Sergio <span class="wave">👋</span></p>
+      <h1 class="hero-title" 
+          @titleSlideDown
+          (mousemove)="onTitleMouseMove($event)"
+          (mouseleave)="onTitleMouseLeave($event)">
+        <span class="word"><span class="highlight char">C</span><span class="highlight char">r</span><span class="highlight char">e</span><span class="highlight char">a</span><span class="highlight char">t</span><span class="highlight char">i</span><span class="highlight char">v</span><span class="highlight char">e</span></span>
+        <span class="word"><span class="char">F</span><span class="char">u</span><span class="char">l</span><span class="char">l</span></span>
+        <span class="word"><span class="char">S</span><span class="char">t</span><span class="char">a</span><span class="char">c</span><span class="char">k</span></span>
+        <span class="word"><span class="char">D</span><span class="char">e</span><span class="char">v</span><span class="char">e</span><span class="char">l</span><span class="char">o</span><span class="char">p</span><span class="char">e</span><span class="char">r</span></span>
+      </h1>
+      <h2 class="subtitle text-item" @subtitleSlideUp>Based in Dublin, Ireland</h2>
+      <p class="lead text-item">
+        I build <span class="keyword">efficient</span>, <span class="keyword">scalable</span>, and <span class="keyword">secure</span> web applications using Angular, React, and Spring Boot.
+        Passionate about fintech, clean design, and great user experiences.
+      </p>
+      <!--<div class="cta text-item">
+        <button type="button" 
+                class="btn btn-primary" 
+                (click)="scrollToProjects()"
+                (mouseenter)="buttonState = 'hover'"
+                (mouseleave)="buttonState = 'idle'"
+                [@buttonGlow]="buttonState">
+          View My Work
+        </button>
+      </div>-->
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <app-about></app-about>
+  
+</section>
+
+<section id="skills" class="section">
+  <app-skills></app-skills>
+</section>
+
+<section id="projects" class="section">
+  <app-projects></app-projects>
+</section>
+
+<section id="contact" class="section">
+  <app-contact></app-contact>
+</section>

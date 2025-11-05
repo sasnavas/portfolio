@@ -1,0 +1,39 @@
+<section class="projects-section" aria-label="Projects">
+  <div class="projects-container">
+    <header class="projects-header">
+      <h2 class="title">
+        <span class="char" style="--i:0">P</span>
+        <span class="char" style="--i:1">r</span>
+        <span class="char" style="--i:2">o</span>
+        <span class="char" style="--i:3">j</span>
+        <span class="char" style="--i:4">e</span>
+        <span class="char" style="--i:5">c</span>
+        <span class="char" style="--i:6">t</span>
+        <span class="char" style="--i:7">s</span>
+      </h2>
+      <p class="subtitle">A selection of projects I've built to showcase my experience across Front-End, Back-End, and Fintech solutions.</p>
+      <span class="accent-bar" aria-hidden="true"></span>
+    </header>
+
+    <div class="projects-grid" @staggerProjects>
+      @for (p of projects(); track p.title) {
+        <article class="project-card" 
+                 [class.is-angular]="p.type==='angular'" 
+                 [class.is-react]="p.type==='react'"
+                 [class.is-spring]="p.type==='spring'"
+                 [class.is-fintech]="p.type==='fintech'">
+          <span class="marker" aria-hidden="true"></span>
+          <h3 class="project-title">{{ p.title }}</h3>
+          <p class="project-desc">{{ p.desc }}</p>
+          <div class="stack">
+            @for (t of p.stack; track t) { <span class="chip">{{ t }}</span> }
+          </div>
+          <div class="actions">
+            <a class="btn ghost" [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-primary" [href]="p.live" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
