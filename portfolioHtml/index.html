@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sergio Sanchez Navas - Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <header class="site-header glass">
+    <nav class="nav container">
+      <a class="brand" href="#home">Sesnavas.DEV</a>
+  
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <ul class="menu">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="site-bg home-mode" id="main-bg">
+    
+    <!-- Rocket Scroll Indicator -->
+    <div class="rocket-container">
+      <div class="moon-destination"></div>
+      <div class="earth-platform"></div>
+      <div class="rocket direction-down" data-section="home" style="top: 100%;">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2c-1.5 0-2.5 1.5-3 3l-1 3v8l1 2h6l1-2V8l-1-3c-.5-1.5-1.5-3-3-3z"/>
+          <path d="M9 18l1 3 2-1 2 1 1-3z" opacity="0.7"/>
+          <circle cx="12" cy="8" r="1.5" fill="rgba(255,255,255,0.8)"/>
+          <path d="M8 12l-2 3 2 1z"/>
+          <path d="M16 12l2 3-2 1z"/>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="site-main container">
+      
+      <!-- HOME SECTION -->
+      <section id="home" class="hero section reveal" aria-label="Hero">
+        <div class="hero-inner">
+          <div class="hero-text reveal">
+            <p class="eyebrow text-item">Hi, I'm Sergio <span class="wave">👋</span></p>
+            <h1 class="hero-title reveal">
+              <span class="word"><span class="highlight char">C</span><span class="highlight char">r</span><span class="highlight char">e</span><span class="highlight char">a</span><span class="highlight char">t</span><span class="highlight char">i</span><span class="highlight char">v</span><span class="highlight char">e</span></span>
+              <span class="word"><span class="char">F</span><span class="char">u</span><span class="char">l</span><span class="char">l</span></span>
+              <span class="word"><span class="char">S</span><span class="char">t</span><span class="char">a</span><span class="char">c</span><span class="char">k</span></span>
+              <span class="word"><span class="char">D</span><span class="char">e</span><span class="char">v</span><span class="char">e</span><span class="char">l</span><span class="char">o</span><span class="char">p</span><span class="char">e</span><span class="char">r</span></span>
+            </h1>
+            <h2 class="subtitle text-item reveal">Based in Dublin, Ireland</h2>
+            <p class="lead text-item reveal">
+              I build <span class="keyword">efficient</span>, <span class="keyword">scalable</span>, and <span class="keyword">secure</span> web applications using Angular, React, and Spring Boot.
+              Passionate about fintech, clean design, and great user experiences.
+            </p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- ABOUT SECTION -->
+      <section id="about" class="section">
+        <div class="about">
+          <div class="about-container">
+            <header class="about-header reveal">
+              <h2 class="title">
+                <span class="char" style="--i:0">A</span>
+                <span class="char" style="--i:1">b</span>
+                <span class="char" style="--i:2">o</span>
+                <span class="char" style="--i:3">u</span>
+                <span class="char" style="--i:4">t</span>
+                <span class="char space" aria-hidden="true"> </span>
+                <span class="char" style="--i:5">M</span>
+                <span class="char" style="--i:6">e</span>
+              </h2>
+              <p class="subtitle">"Creative Full Stack Developer passionate about building efficient and elegant solutions."</p>
+              <span class="accent-bar" aria-hidden="true"></span>
+            </header>
+        
+            <div class="about-content reveal">
+              <figure class="about-visual" aria-label="Profile photo">
+                <div class="avatar" role="img" aria-label="Sergio avatar placeholder"></div>
+              </figure>
+        
+              <article class="about-text">
+                <p>
+                  Hi, I’m <strong>Sergio Sanchez Navas</strong>, a <strong>Full Stack Developer</strong> with strong
+                  experience in <strong>Java, Angular, Node.js, RESTful APIs</strong>, and <strong>software architecture</strong>.
+                </p>
+                <p>
+                  I’ve worked on national-scale financial systems, pension fund management platforms, and
+                  fintech projects.
+                </p>
+                <p>
+                  I’m passionate about <strong>clean code</strong>, <strong>scalable architectures</strong>, and using
+                  technology to make real impact.
+                </p>
+        
+                <a class="btn-download" href="#" download>Download CV</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="section">
+        <div class="skills-section" aria-label="Skills">
+          <div class="skills-container">
+            <header class="skills-header reveal">
+              <h2 class="title" style="--letters: 5">
+                <span class="space" aria-hidden="true"></span>
+                <span class="char" style="--i:0">S</span>
+                <span class="char" style="--i:1">k</span>
+                <span class="char" style="--i:2">i</span>
+                <span class="char" style="--i:3">l</span>
+                <span class="char" style="--i:4">l</span>
+                <span class="char" style="--i:5">s</span>
+              </h2>
+              <p class="subtitle">Technologies and tools I use to design and build reliable web applications.</p>
+              <span class="accent-bar" aria-hidden="true"></span>
+            </header>
+        
+            <div class="skills-grid staggered-grid">
+              <article class="skill-card stagger-item">
+                <h3 class="group-title">🖥️ Front-End</h3>
+                <ul>          
+                  <li>HTML5 / CSS3 <span class="tech-icon tech-icon-nobg" data-tech="html">
+                    <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true">
+                      <path fill="#E65100" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"/>
+                      <path fill="#FF6D00" d="M24 8L24 39.9 35.2 36.7 37.7 8z"/>
+                      <path fill="#FFF" d="M24,25v-4h8.6l-0.7,11.5L24,35.1v-4.2l4.1-1.4l0.3-4.5H24z M32.9,17l0.3-4H24v4H32.9z"/>
+                      <path fill="#EEE" d="M24,30.9v4.2l-7.9-2.6L15.7,27h4l0.2,2.5L24,30.9z M19.1,17H24v-4h-9.1l0.7,12H24v-4h-4.6L19.1,17z"/>
+                    </svg>
+                  </span></li>
+                  <li>JavaScript <span class="tech-icon" data-tech="javascript">JS</span></li>
+                  <li>Angular <span class="tech-icon tech-icon-nobg" data-tech="angular">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path fill="#dd0031" d="M9.931 12.645h4.138l-2.07-4.908m0-7.737L.68 3.982l1.726 14.771L12 24l9.596-5.242L23.32 3.984 11.999.001zm7.064 18.31h-2.638l-1.422-3.503H8.996l-1.422 3.504h-2.64L12 2.65z"/>
+                    </svg>
+                  </span></li>
+                  <li>React <span class="tech-icon tech-icon-nobg" data-tech="react">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path fill="#61dafb" d="M12 10.11c1.03 0 1.87.84 1.87 1.89 0 1-.84 1.85-1.87 1.85S10.13 13 10.13 12c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9c-.6 0-1.17 0-1.71.03-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03.6 0 1.17 0 1.71-.03.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68 0 1.69-1.83 2.93-4.37 3.68-.62 2.58-.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.38 1.95-1.46-.84-1.62-3.05-1-5.63-2.54-.75-4.37-1.99-4.37-3.68 0-1.69 1.83-2.93 4.37-3.68-.62-2.58-.46-4.79 1-5.63 1.47-.84 3.46.12 5.38 1.95 1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26 0-.73-1.18-1.63-3.28-2.26-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26 0 .73 1.18 1.63 3.28 2.26.25-.76.55-1.51.89-2.26m9.15 2.74l.3.51c.31-.05.61-.1.88-.16-.07-.28-.18-.57-.29-.86l-.29.51m-2.54 4.49c1.59 1.5 2.97 2.08 3.59 1.7.64-.35.83-1.82.32-3.96-.77.16-1.58.28-2.4.36-.48.67-.99 1.31-1.51 1.9M8.99 17.73l-.3.51c.11.29.22.58.29.86.27-.06.57-.11.88-.16l-.29-.51m-2.55-4.49l-.29-.51c-.31.05-.61.1-.88.16.07.28.18.57.29.86l.29-.51m2.55-8.75c-1.59-1.5-2.97-2.08-3.6-1.7-.63.35-.82 1.82-.31 3.96.77-.16 1.58-.28 2.4-.36.48-.67.99-1.31 1.51-1.9z"/>
+                    </svg>
+                  </span></li>
+                  <li>TypeScript <span class="tech-icon" data-tech="typescript">TS</span></li>
+                  </ul>
+              </article>
+        
+              <article class="skill-card stagger-item">
+                <h3 class="group-title">⚙️ Back-End</h3>
+                <ul>
+                  <li>Java / Spring Boot <span class="tech-icon" data-tech="java">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                      <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
+                    </svg>
+                  </span></li>
+                  <li>Node.js <span class="tech-icon tech-icon-nobg" data-tech="nodejs">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path fill="#339933" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+                    </svg>
+                  </span></li>
+                  <li>RESTful APIs <span class="tech-icon" data-tech="api">API</span></li>
+                  <li>MySQL <span class="tech-icon" data-tech="mysql">MySQL</span></li>
+                </ul>
+              </article>
+        
+              <article class="skill-card stagger-item">
+                <h3 class="group-title">🛠️ Tools</h3>
+                <ul>
+                  <li>Git / GitHub <span class="tech-icon" data-tech="git">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+                      <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                  </span></li>
+                  <li>Docker <span class="tech-icon tech-icon-nobg" data-tech="docker">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path fill="#2496ED" d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/>
+                    </svg>
+                  </span></li>
+                  <li>Postman <span class="tech-icon" data-tech="postman">P</span></li>
+                  <li>Agile / Scrum <span class="tech-icon" data-tech="agile">🔄</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="section">
+        <div class="projects-section" aria-label="Projects">
+          <div class="projects-container">
+            <header class="projects-header reveal">
+              <h2 class="title">
+                <span class="char" style="--i:0">P</span>
+                <span class="char" style="--i:1">r</span>
+                <span class="char" style="--i:2">o</span>
+                <span class="char" style="--i:3">j</span>
+                <span class="char" style="--i:4">e</span>
+                <span class="char" style="--i:5">c</span>
+                <span class="char" style="--i:6">t</span>
+                <span class="char" style="--i:7">s</span>
+              </h2>
+              <p class="subtitle">A selection of projects I've built to showcase my experience across Front-End, Back-End, and Fintech solutions.</p>
+              <span class="accent-bar" aria-hidden="true"></span>
+            </header>
+        
+            <div class="projects-grid staggered-grid">
+              
+              <article class="project-card is-angular stagger-item">
+                <span class="marker" aria-hidden="true"></span>
+                <h3 class="project-title">Crypto Portfolio Dashboard</h3>
+                <p class="project-desc">A Full-Stack application to manage a cryptocurrency portfolio in real-time. It allows users to keep track of their purchases, visually analyze their asset distribution, and get live valuations by consuming the public CoinGecko API.</p>
+                <div class="stack">
+                  <span class="chip">Angular</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">REST APIs</span>
+                </div>
+                <div class="actions">
+                  <a class="btn ghost" href="https://github.com/sasnavas/crypto_portfolio_fullstack" target="_blank" rel="noopener">GitHub</a>
+                  <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live Demo</a>
+                </div>
+              </article>
+              
+              <article class="project-card is-react stagger-item">
+                <span class="marker" aria-hidden="true"></span>
+                <h3 class="project-title">CineMatch - Full-Stack Movie Discovery</h3>
+                <p class="project-desc">A Tinder-style web application to discover trending movies and build a personalized favorites collection. Built with a modern React frontend, a robust Java Spring Boot backend, and real-time data from the TMDB API.</p>
+                <div class="stack">
+                  <span class="chip">React</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">TMDB API</span>
+                </div>
+                <div class="actions">
+                  <a class="btn ghost" href="https://github.com/sasnavas/cinematch-portfolio" target="_blank" rel="noopener">GitHub</a>
+                  <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live Demo</a>
+                </div>
+              </article>
+              
+              <article class="project-card stagger-item">
+                <span class="marker" aria-hidden="true"></span>
+                <h3 class="project-title">Unique Coffee - Premium E-Commerce</h3>
+                <p class="project-desc">Unique Coffee is a Full-Stack Single Page Application (SPA). It is a premium e-commerce platform designed for professional baristas and coffee lovers. The system allows users to browse products, manage a shopping cart, and proceed to a secure checkout. The product prices and details are updated dynamically using a live database connection.</p>
+                <div class="stack">
+                  <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">MySQL</span>
+                </div>
+                <div class="actions">
+                  <a class="btn ghost" href="https://github.com/sasnavas/uniqueCoffee" target="_blank" rel="noopener">GitHub</a>
+                  <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live Demo</a>
+                </div>
+              </article>
+              
+              <article class="project-card stagger-item">
+                <span class="marker" aria-hidden="true"></span>
+                <h3 class="project-title">EcoIT 🌍💻 Smart Carbon Dashboard for SMEs</h3>
+                <p class="project-desc">EcoIT is a simple web app for small businesses (SMEs). It acts as a smart carbon calculator. It helps owners see the carbon footprint of their IT devices.</p>
+                <div class="stack">
+                  <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span>
+                </div>
+                <div class="actions">
+                  <a class="btn ghost" href="https://github.com/sasnavas/echoIt" target="_blank" rel="noopener">GitHub</a>
+                  <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live Demo</a>
+                </div>
+              </article>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="section">
+        <div class="contact-section" aria-label="Contact">
+          <div class="contact-container">
+            <header class="contact-header reveal">
+              <div class="title-wrapper">
+                <h2 class="title" data-color-state="0">
+                  <span class="title-text">Contact Me</span>
+                </h2>
+              </div>
+              <p class="subtitle">Feel free to reach out for collaborations, freelance projects, or just a friendly chat.</p>
+              <span class="accent-bar" aria-hidden="true"></span>
+            </header>
+        
+            <div class="contact-content">
+              <form class="contact-form reveal">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+        
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+                </div>
+        
+                <div class="field">
+                  <label for="subject">Subject</label>
+                  <input id="subject" name="subject" type="text" placeholder="Project inquiry, collaboration, etc." required />
+                </div>
+        
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or idea..." required></textarea>
+                </div>
+        
+                <div class="actions">
+                  <button type="submit" class="btn btn-send">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+        
+              <aside class="contact-info reveal">
+                <h3 class="info-title">Get in Touch</h3>
+                <ul class="info-list">
+                  <li>
+                    <a href="mailto:sesnavas@gmail.com" class="contact-link" aria-label="Email via Gmail" target="_blank" rel="noopener">
+                      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+                        <path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                      </svg>
+                      <span>Gmail</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://wa.me/353830745267" class="contact-link" aria-label="Message on WhatsApp" target="_blank" rel="noopener">
+                      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+                        <path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      <span>WhatsApp</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://linkedin.com/in/sergio-sanchez-navas-fullstackdev" class="contact-link" aria-label="LinkedIn Profile" target="_blank" rel="noopener">
+                      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+                        <path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/sasnavas" class="contact-link" aria-label="GitHub Profile" target="_blank" rel="noopener">
+                      <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+                        <path fill="#181717" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+    </div>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© 2026 — All rights reserved.</small>
+      <div class="social">
+        <a href="https://github.com/sasnavas" target="_blank" rel="noopener">GitHub</a>
+        <a href="http://linkedin.com/in/sergio-sanchez-navas-fullstackdev" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  
+  <button class="to-top" type="button" aria-label="Back to top">↑</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
